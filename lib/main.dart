@@ -1,3 +1,4 @@
+import 'package:electronics_store/features/splash/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Electronics Store',
-      home: null,
+      home: SplashScreen(),
     );
   }
 }
