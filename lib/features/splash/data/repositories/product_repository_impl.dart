@@ -1,12 +1,12 @@
 import 'package:electronics_store/features/splash/data/datasources/banner_product_remote_data_source.dart';
-import 'package:electronics_store/features/splash/data/datasources/product_remote_data_source.dart';
+import 'package:electronics_store/features/splash/data/datasources/products_remote_data_source.dart';
 import 'package:electronics_store/features/splash/domain/entities/banner_product_entity.dart';
 import 'package:electronics_store/features/splash/domain/entities/product_entity.dart';
 import 'package:electronics_store/features/splash/domain/repositories/product_repository.dart';
 
 class ProductRepositoryImpl extends ProductRepository {
   final BannerProductRemoteDataSource bannerProductRemote;
-  final ProductRemoteDataSource productRemote;
+  final ProductsRemoteDataSource productRemote;
 
   ProductRepositoryImpl({
     required this.bannerProductRemote,
@@ -23,3 +23,5 @@ class ProductRepositoryImpl extends ProductRepository {
     return productRemote.getAllProducts();
   }
 }
+
+
