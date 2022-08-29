@@ -1,4 +1,4 @@
-import 'package:electronics_store/common/app_collors.dart';
+import 'package:electronics_store/common/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class LogoCompanyWidget extends StatelessWidget {

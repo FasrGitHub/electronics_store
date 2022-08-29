@@ -1,12 +1,14 @@
-import 'package:electronics_store/features/splash/domain/entities/product_entity.dart';
+import 'package:dartz/dartz.dart';
+import 'package:electronics_store/core/error/failure.dart';
+import 'package:electronics_store/features/splash/domain/entities/request_entity.dart';
 import 'package:electronics_store/features/splash/domain/repositories/product_repository.dart';
 
-class GetAllBannerProducts {
+class GetAllProducts {
   final ProductRepository productRepository;
 
-  GetAllBannerProducts(this.productRepository);
+  GetAllProducts(this.productRepository);
 
-  Future<List<ProductEntity>> call() async {
+  Future<Either<Failure, RequestEntity>> call() async {
     return await productRepository.getAllProducts();
   }
 }

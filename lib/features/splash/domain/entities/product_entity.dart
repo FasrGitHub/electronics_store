@@ -4,8 +4,8 @@ class ProductEntity extends Equatable {
   final int id;
   final bool isFavorites;
   final String title;
-  final String priceWithoutDiscount;
-  final String discountPrice;
+  final int priceWithoutDiscount;
+  final int discountPrice;
   final String picture;
 
   const ProductEntity({

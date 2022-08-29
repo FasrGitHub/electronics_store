@@ -1,20 +1,6 @@
-import 'package:electronics_store/features/splash/data/models/banner_product_model.dart';
-import 'package:electronics_store/features/splash/data/models/product_model.dart';
-import 'package:equatable/equatable.dart';
+import 'package:electronics_store/features/splash/domain/entities/request_entity.dart';
 
-class RequestModel extends Equatable {
-  final List<BannerProductModel> bannerProductList;
-  final List<ProductModel> productList;
+class RequestModel extends RequestEntity {
+  const RequestModel({required super.bannerProductList, required super.productList});
 
-  const RequestModel({
-    required this.bannerProductList,
-    required this.productList,
-  });
-
-  @override
-  List<Object?> get props =>
-      [
-        bannerProductList,
-        productList,
-      ];
 }
