@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:electronics_store/common/app_colors.dart';
 import 'package:electronics_store/features/home/domain/entities/banner_product_entity.dart';
 import 'package:flutter/material.dart';
@@ -10,60 +11,60 @@ class HotSalesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 182,
-      child: Padding(
+    return Padding(
         padding: const EdgeInsets.only(left: 15, right: 15),
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
+        child: CarouselSlider.builder(
           itemCount: bannerProduct.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              //TODO возможно есть решение лучше
-              width: MediaQuery.of(context).size.width - 30,
-              height: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                      bannerProduct[index].picture,
-                    )),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                      top: 21,
-                      left: 25,
-                      child: getIconNew(bannerProduct[index].isNew)),
-                  Positioned(
-                    top: 59,
-                    left: 25,
-                    child: Text(
-                      bannerProduct[index].title,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30),
-                    ),
-                  ),
-                  Positioned(
-                    top: 94,
-                    left: 25,
-                    child: Text(
-                      bannerProduct[index].subtitle,
-                      style: const TextStyle(color: Colors.white, fontSize: 13),
-                    ),
-                  ),
-                  Positioned(
-                      top: 133,
-                      left: 25,
-                      child: getButtonBuy(bannerProduct[index].isBuy)),
-                ],
-              ),
-            );
-          },
-        ),
+          itemBuilder: (context, itemIndex, pageViewIndex) =>
+              bodyHotSales(context, itemIndex),
+          options: CarouselOptions(
+            enableInfiniteScroll: false,
+            viewportFraction: 1,
+          ),
+        ));
+  }
+
+  Widget bodyHotSales(BuildContext context, int index) {
+    return Container(
+      //TODO возможно есть решение лучше
+      width: MediaQuery.of(context).size.width - 30,
+      height: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        image: DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(
+              bannerProduct[index].picture,
+            )),
+      ),
+      child: Stack(
+        children: [
+          Positioned(
+              top: 21, left: 25, child: getIconNew(bannerProduct[index].isNew)),
+          Positioned(
+            top: 59,
+            left: 25,
+            child: Text(
+              bannerProduct[index].title,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30),
+            ),
+          ),
+          Positioned(
+            top: 94,
+            left: 25,
+            child: Text(
+              bannerProduct[index].subtitle,
+              style: const TextStyle(color: Colors.white, fontSize: 13),
+            ),
+          ),
+          Positioned(
+              top: 133,
+              left: 25,
+              child: getButtonBuy(bannerProduct[index].isBuy)),
+        ],
       ),
     );
   }
@@ -99,7 +100,7 @@ class HotSalesWidget extends StatelessWidget {
               primary: Colors.white,
               onPrimary: Colors.black,
             ),
-            child: Text(
+            child: const Text(
               "Buy now!",
               style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
             )),
