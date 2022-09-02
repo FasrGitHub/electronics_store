@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:electronics_store/core/error/failure.dart';
-import 'package:electronics_store/features/splash/data/models/banner_product_model.dart';
-import 'package:electronics_store/features/splash/data/models/product_model.dart';
-import 'package:electronics_store/features/splash/data/models/request_model.dart';
+import 'package:electronics_store/features/home/data/models/banner_product_model.dart';
+import 'package:electronics_store/features/home/data/models/product_model.dart';
+import 'package:electronics_store/features/home/data/models/request_model.dart';
 import 'package:http/http.dart' as http;
 
 class ProductsRemoteDataSource {

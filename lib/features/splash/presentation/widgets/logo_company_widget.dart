@@ -10,7 +10,7 @@ class LogoCompanyWidget extends StatelessWidget {
       width: 132.0,
       height: 132.0,
       decoration: const BoxDecoration(
-        color: AppColors.orangeBackground,
+        color: AppColors.orange,
         shape: BoxShape.circle,
       ),
     );

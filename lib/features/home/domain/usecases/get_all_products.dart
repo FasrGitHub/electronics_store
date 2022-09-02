@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:electronics_store/core/error/failure.dart';
-import 'package:electronics_store/features/splash/domain/entities/request_entity.dart';
-import 'package:electronics_store/features/splash/domain/repositories/product_repository.dart';
+import 'package:electronics_store/features/home/domain/entities/request_entity.dart';
+import 'package:electronics_store/features/home/domain/repositories/product_repository.dart';
 
 class GetAllProducts {
   final ProductRepository productRepository;
