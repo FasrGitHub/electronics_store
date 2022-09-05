@@ -1,5 +1,5 @@
 import 'package:electronics_store/common/app_colors.dart';
-import 'package:electronics_store/features/detais/presentation/screens/details_product_screen.dart';
+import 'package:electronics_store/features/details/presentation/screens/details_product_screen.dart';
 import 'package:electronics_store/features/home/domain/entities/product_entity.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
