@@ -33,8 +33,7 @@ class _CategoryWidgetState extends State<CategoryWidget> {
           Padding(
             padding: const EdgeInsets.only(left: 27),
             child: GestureDetector(
-              onTap: () {
-              },
+              onTap: () {},
               child: Stack(
                 children: [
                   getCategoryIcon(statePhone),
