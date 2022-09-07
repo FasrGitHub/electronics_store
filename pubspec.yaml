@@ -87,6 +87,10 @@ flutter:
     - assets/icons/shop.svg
     - assets/icons/favorite.svg
     - assets/icons/person.svg
+    - assets/icons/icon_cpu.svg
+    - assets/icons/icon_camera.svg
+    - assets/icons/icon_memory.svg
+    - assets/icons/icon_ram.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

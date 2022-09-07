@@ -35,7 +35,7 @@ class NavigationWidget extends StatelessWidget {
           ),
           const Text(
             'Product Details',
-            style: TextStyle(fontSize: 23, color: Colors.black),
+            style: TextStyle(fontSize: 23, fontWeight: FontWeight.w500),
           ),
           const Spacer(
             flex: 2,
