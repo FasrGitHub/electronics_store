@@ -14,8 +14,7 @@ class ProductDetailsRemoteDataSource {
   Future<ProductDetailsModel> _getProductsFromUrl(String url) async {
     final response = await client.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      var result = ProductDetailsModel.fromJson(jsonDecode(response.body));
-      return result;
+      return ProductDetailsModel.fromJson(jsonDecode(response.body));
     } else {
       throw ServerFailure();
     }

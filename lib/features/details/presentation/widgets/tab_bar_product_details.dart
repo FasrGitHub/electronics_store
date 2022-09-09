@@ -1,4 +1,5 @@
 import 'package:electronics_store/common/app_colors.dart';
+import 'package:electronics_store/features/cart/presentation/screens/cart_screen.dart';
 import 'package:electronics_store/features/details/domain/entities/product_details_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -111,7 +112,12 @@ class TabBarProductDetails extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CartScreen()));
+                    },
                     child: Container(
                       height: 54,
                       decoration: const BoxDecoration(
