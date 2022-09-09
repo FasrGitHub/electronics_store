@@ -2,43 +2,40 @@ import 'package:electronics_store/common/app_colors.dart';
 import 'package:electronics_store/features/home/presentation/bloc/categories_bloc/categories_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../domain/entities/category_entity.dart';
 
-class CategoriesWidget extends StatefulWidget {
+class CategoriesWidget extends StatelessWidget {
   const CategoriesWidget({Key? key}) : super(key: key);
 
   @override
-  State<CategoriesWidget> createState() => _CategoriesWidgetState();
-}
-
-class _CategoriesWidgetState extends State<CategoriesWidget> {
-  @override
   Widget build(BuildContext context) {
     return BlocBuilder<CategoriesBloc, CategoriesState>(
-        builder: (context, state) {
-      final categories = state.categories;
+      builder: (context, state) {
+        final categories = state.categories;
 
-      return SizedBox(
-        height: 93,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (context, index) {
-            return category(
-              categories[index],
-              categories[index].id == state.activeCategoryId,
-            );
-          },
-        ),
-      );
-    });
+        return SizedBox(
+          height: 93,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: categories.length,
+            itemBuilder: (context, index) {
+              return category(
+                categories[index],
+                categories[index].id == state.activeCategoryId,
+                context,
+              );
+            },
+          ),
+        );
+      },
+    );
   }
 
   Widget category(
     CategoryEntity category,
     bool active,
+    BuildContext context,
   ) {
     final categoriesBloc = BlocProvider.of<CategoriesBloc>(context);
 
@@ -48,11 +45,7 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
         onTap: () {
           categoriesBloc.add(SetActiveEvent(category.id));
         },
-        child: Stack(
-          children: [
-            getCategoryIcon(active, category),
-          ],
-        ),
+        child: getCategoryIcon(active, category),
       ),
     );
   }
@@ -82,12 +75,13 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
           ),
         ),
         Padding(
-            padding: const EdgeInsets.only(top: 7),
-            child: Text(
-              category.name,
-              style: TextStyle(
-                  color: textColor, fontSize: 12, fontWeight: FontWeight.w500),
-            ))
+          padding: const EdgeInsets.only(top: 7),
+          child: Text(
+            category.name,
+            style: TextStyle(
+                color: textColor, fontSize: 12, fontWeight: FontWeight.w500),
+          ),
+        ),
       ],
     );
   }

@@ -43,7 +43,7 @@ class DetailsProductScreen extends StatelessWidget {
             }
             return ListView(
               children: [
-                NavigationWidget(),
+                const NavigationWidget(),
                 productImageCarouselWidget,
                 productDetailsInfoWidget,
               ],
