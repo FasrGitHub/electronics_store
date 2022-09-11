@@ -14,7 +14,7 @@ class ColorProductWidget extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.only(left: 27, top: 14),
           child: SizedBox(
-            width: 200,
+            width: 100,
             height: 50,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,

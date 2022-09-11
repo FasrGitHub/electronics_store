@@ -1,6 +1,7 @@
 import 'package:electronics_store/common/app_colors.dart';
 import 'package:electronics_store/features/cart/presentation/screens/cart_screen.dart';
 import 'package:electronics_store/features/details/domain/entities/product_details_entity.dart';
+import 'package:electronics_store/features/details/presentation/widgets/capasity_product_widget.dart';
 import 'package:electronics_store/features/details/presentation/widgets/color_product_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -113,6 +114,7 @@ class TabBarProductDetails extends StatelessWidget {
                 Row(
                   children: [
                     ColorProductWidget(),
+                    CapacityProductWidget(),
                   ],
                 ),
                 Padding(

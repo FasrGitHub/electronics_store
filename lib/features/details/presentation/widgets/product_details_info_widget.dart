@@ -1,5 +1,6 @@
 import 'package:electronics_store/common/app_colors.dart';
 import 'package:electronics_store/features/details/domain/entities/product_details_entity.dart';
+import 'package:electronics_store/features/details/presentation/bloc/capacity_product_bloc/capacity_product_bloc.dart';
 import 'package:electronics_store/features/details/presentation/bloc/colors_product_bloc/colors_product_bloc.dart';
 import 'package:electronics_store/features/details/presentation/widgets/tab_bar_product_details.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +14,17 @@ class ProductDetailsInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ColorsProductBloc>(
-      create: (BuildContext context) => ColorsProductBloc()
-        ..add(ColorsProductUpdateEvent(productDetails.color)),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ColorsProductBloc>(
+          create: (BuildContext context) => ColorsProductBloc()
+            ..add(ColorsProductUpdateEvent(productDetails.color)),
+        ),
+        BlocProvider<CapacityProductBloc>(
+          create: (BuildContext context) => CapacityProductBloc()
+            ..add(CapacityProductUpdateEvent(productDetails.capacity)),
+        ),
+      ],
       child: Container(
         height: 471,
         decoration: const BoxDecoration(
