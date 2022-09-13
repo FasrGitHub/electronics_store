@@ -9,22 +9,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class CartScreen extends StatelessWidget {
-  CartScreen({Key? key}) : super(key: key);
-
-  final basketRepositoryImpl = BasketRepositoryImpl(
-    remoteDataSource: BasketRemoteDataSource(),
-    networkInfo: NetworkInfoImpl(InternetConnectionChecker()),
-  );
+  const CartScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Widget basketWidget = Container();
 
-    return BlocProvider<BasketBloc>(
-      create: (context) =>
-          BasketBloc(basketRepositoryImpl: basketRepositoryImpl)
-            ..add(LoadBasket()),
-      child: Scaffold(body: BlocBuilder<BasketBloc, BasketState>(
+    return Scaffold(
+      body: BlocBuilder<BasketBloc, BasketState>(
         builder: (context, state) {
           if (state is BasketLoading) {
             const CircularProgressIndicator();
@@ -49,7 +41,7 @@ class CartScreen extends StatelessWidget {
             ],
           );
         },
-      )),
+      ),
     );
   }
 }

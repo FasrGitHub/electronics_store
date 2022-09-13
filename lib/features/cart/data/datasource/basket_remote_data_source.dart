@@ -7,7 +7,9 @@ import 'package:http/http.dart' as http;
 class BasketRemoteDataSource {
   final String url =
       "https://run.mocky.io/v3/53539a72-3c5f-4f30-bbb1-6ca10d42c149";
-  final client = http.Client();
+  final http.Client client;
+
+  BasketRemoteDataSource({required this.client});
 
   Future<BasketModel> getBasket() => _getBasketFromUrl(url);
 

@@ -6,16 +6,18 @@ import 'package:electronics_store/features/cart/domain/entities/basket_entity.da
 import 'package:electronics_store/features/cart/domain/repositories/basket_repository.dart';
 
 class BasketRepositoryImpl implements BasketRepository {
-  final BasketRemoteDataSource remoteDataSource;
+  final BasketRemoteDataSource basketRemoute;
   final NetworkInfo networkInfo;
 
-  BasketRepositoryImpl(
-      {required this.networkInfo, required this.remoteDataSource});
+  BasketRepositoryImpl({
+    required this.networkInfo,
+    required this.basketRemoute,
+  });
 
   @override
   Future<Either<Failure, BasketEntity>> getBasket() async {
     return await _getBasket(() {
-      return remoteDataSource.getBasket();
+      return basketRemoute.getBasket();
     });
   }
 

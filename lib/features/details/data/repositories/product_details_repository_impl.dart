@@ -6,17 +6,17 @@ import 'package:electronics_store/features/details/domain/entities/product_detai
 import 'package:electronics_store/features/details/domain/repositories/product_details_repository.dart';
 
 class ProductDetailsRepositoryImpl implements ProductDetailsRepository {
-  final ProductDetailsRemoteDataSource remoteDataSource;
+  final ProductDetailsRemoteDataSource productDetailsRemote;
   final NetworkInfo networkInfo;
 
   ProductDetailsRepositoryImpl(
       {required this.networkInfo,
-      required this.remoteDataSource});
+      required this.productDetailsRemote});
 
   @override
   Future<Either<Failure, ProductDetailsEntity>> getProductDetails() async {
     return await _getProductDetails((){
-      return remoteDataSource.getProductDetails();
+      return productDetailsRemote.getProductDetails();
     });
   }
 

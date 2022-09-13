@@ -9,7 +9,9 @@ import 'package:http/http.dart' as http;
 class ProductsRemoteDataSource {
   final String url =
       "https://run.mocky.io/v3/654bd15e-b121-49ba-a588-960956b15175";
-  final client = http.Client();
+  final http.Client client;
+
+  ProductsRemoteDataSource({required this.client});
 
   Future<RequestModel> getAllProducts() => _getProductsFromUrl(url);
 

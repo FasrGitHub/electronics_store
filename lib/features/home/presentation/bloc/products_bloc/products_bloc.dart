@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:electronics_store/core/error/failure.dart';
-import 'package:electronics_store/features/home/data/repositories/product_repository_impl.dart';
 import 'package:electronics_store/features/home/domain/entities/banner_product_entity.dart';
 import 'package:electronics_store/features/home/domain/entities/product_entity.dart';
+import 'package:electronics_store/features/home/domain/usecases/get_all_products.dart';
 import 'package:equatable/equatable.dart';
 
 part 'products_event.dart';
@@ -15,17 +15,16 @@ const SERVER_FAILURE_MESSAGE = 'Server Failure';
 const UNEXPECTED_MESSAGE = 'Unexpected Error';
 
 class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
-  // final GetAllProducts getAllProducts;
-  final ProductRepositoryImpl productRepositoryImpl;
+  final GetAllProducts getAllProducts;
 
-  ProductsBloc({required this.productRepositoryImpl}) : super(ProductsEmpty()) {
+  ProductsBloc({required this.getAllProducts}) : super(ProductsEmpty()) {
     on<ProductsEvent>(_onEvent);
   }
 
   FutureOr<void> _onEvent(
       ProductsEvent event, Emitter<ProductsState> state) async {
     emit(ProductsLoading());
-    final failureOrProducts = await productRepositoryImpl.getAllProducts();
+    final failureOrProducts = await getAllProducts();
     emit(failureOrProducts.fold(
         (failure) => ProductsError(message: _mapFailureToMessage(failure)),
         (r) => ProductsLoaded(
