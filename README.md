@@ -1,16 +1,22 @@
-# electronics_store
+# Магазин электроники
 
-A new Flutter project.
+![Capture](https://user-images.githubusercontent.com/92981476/195257425-cbe83e58-474d-4f5f-9264-1fda8219cb14.PNG)
+![Capture2](https://user-images.githubusercontent.com/92981476/195257432-6dcac7ce-a30a-4c1f-9916-fb9ffe026588.PNG)
+![Capture3](https://user-images.githubusercontent.com/92981476/195257436-d1bc2831-d2c1-4152-9c20-a2545f7b9b7f.PNG)
+![Capture4](https://user-images.githubusercontent.com/92981476/195257439-26479936-b481-4aa2-af50-7993ddbc4237.PNG)
 
-## Getting Started
+Это тестовое задание.
 
-This project is a starting point for a Flutter application.
+Приложение состоит из 4 экранов.
 
-A few resources to get you started if this is your first Flutter project:
+1 Splash Screen в данным момент симулирует загрузку данных на 1.5 секунды и переключает на другой экран.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2 Home Screen содержит AppBar, выбор категории товаров, новинки и товары. В AppBar реализован всплывающий виджет с фильтром товаров. Выбор категорий реализован при помощи Bloc (в реальных проектах категории должны получаться из бэкэнда и отрисовывать товары при нажатии на соответствующую категорию). Новинки это Stack с описанием, картинкой и значком. Скролл реализован при помощи библиотеки carousel_slider. Товары это List карточек товаров с картинкой, ценой и возможностью добавлять в фавориты(в данный момент не реализовано).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3 Подробные информация о товаре. Содержит изображение товаров, описание, выбор цвета и объем памяти(только View). Переход в корзину. (В ТЗ было описано что необходимо при нажатии на товар отображать только этот товар).
+
+4 Корзина товаров. В тз необходимо было получить Json и отобразить его без какой-либо логики.
+
+Ссылка на ТЗ
+
+https://docs.google.com/document/d/1VedkRcsN6yukGO2uWES4RuIM8KMtESZ8p7zD7nGySMs/edit
